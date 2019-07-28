@@ -1,0 +1,8 @@
+INSERT INTO exchange_value (id, currency_from, currency_to, conversion_multiple, port)
+VALUES ('1000L', 'USD', 'INR', 73, 0);
+INSERT INTO exchange_value (id, currency_from, currency_to, conversion_multiple, port)
+VALUES ('1001L', 'EU', 'INR', 80, 0);
+INSERT INTO exchange_value (id, currency_from, currency_to, conversion_multiple, port)
+VALUES ('1002L', 'USD', 'INR', 73, 0);
+INSERT INTO exchange_value (id, currency_from, currency_to, conversion_multiple, port)
+VALUES ('1003L', 'USD', 'INR', 73, 0);

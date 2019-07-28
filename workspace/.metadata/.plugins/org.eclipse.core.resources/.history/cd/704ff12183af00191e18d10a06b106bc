@@ -1,0 +1,5 @@
+package com.springframework.boot.currencyexchangeservice.repository;
+
+public class ExchangeValueRepository {
+
+}

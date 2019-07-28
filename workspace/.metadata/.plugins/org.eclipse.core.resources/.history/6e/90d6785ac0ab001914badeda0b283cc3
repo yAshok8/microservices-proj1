@@ -1,0 +1,5 @@
+package com.springframework.boot.currencyexchangeservice;
+
+public class CurrencyExchangeController {
+
+}

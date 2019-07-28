@@ -1,0 +1,5 @@
+package org.springframework.boot.currencyconversionservice.controller.beans;
+
+public class CurrencyConversionBean {
+
+}

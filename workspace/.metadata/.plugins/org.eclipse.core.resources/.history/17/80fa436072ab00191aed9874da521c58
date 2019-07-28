@@ -1,0 +1,5 @@
+spring.application.name=limits-service
+application.port=8080
+
+minimum=2
+maximum=298

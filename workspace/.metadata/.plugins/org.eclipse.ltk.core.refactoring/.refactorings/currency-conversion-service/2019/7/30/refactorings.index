@@ -1,0 +1,5 @@
+1564201968753	Rename package 'org.springframework.boot.currencyconversionservice.controller.beans'
+1564204296041	Rename field 'from'
+1564204516330	Rename field 'fromCCS'
+1564204532463	Rename field 'quantity'
+1564204624433	Rename field 'quantityCCS'
