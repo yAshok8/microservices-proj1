@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.currencyconversionservice.beans.CurrencyConversionBean;
 import org.springframework.boot.currencyconversionservice.proxies.CurrencyExchangeServiceProxy;
@@ -17,10 +19,21 @@ import feign.FeignException;
 
 @RestController
 public class CurrencyConversionController {
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private CurrencyExchangeServiceProxy currencyExchangeServiceProxy;
 
+	/**
+	 * @param to
+	 * @param from
+	 * @param quantity
+	 * @return
+	 * The below method uses RestTemplate for making distributed calls. There could be multiple micro-services exposing services via multiple end points.
+	 * Using hard-code/property URL for their invocation makes the code look messy. We can make use of something called Feign to make a single class
+	 * having all the end point calls for a single Microservice. Check method 'convertCurrencyWithFeignProxy'.
+	 */
 	@GetMapping("/currency-converter/from/{from}/to/{to}/quantity/{quantity}")
 	public CurrencyConversionBean convertCurrency(@PathVariable("to") String to, @PathVariable("from") String from,
 			@PathVariable("quantity") BigDecimal quantity) {
@@ -45,6 +58,7 @@ public class CurrencyConversionController {
 			bean.setQuantity(quantity);
 			// we will get conversion multiple from proxy returned object.
 			bean.setTotalCalculatedAmount(bean.getConversionMultiple().multiply(bean.getQuantity()));
+			logger.info("{}", bean);
 		}catch (FeignException e) {
 			// TODO: handle exception
 			e.printStackTrace();
